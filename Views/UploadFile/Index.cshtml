@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@{ 
+    using (Html.BeginForm("Process", "UploadFile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @ViewBag.Error
+        <table cellpadding="2" cellspacing="2">
+            <tr>
+                <td>Photo</td>
+                <td><input type="file" name="photo" /></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input type="submit" value="Upload" id="Uploadfiles" onchange="this.form.submit(onchange="this.form.submit()) />
+                </td>
+            </tr>
+        </table>
+    }
+}
+
+

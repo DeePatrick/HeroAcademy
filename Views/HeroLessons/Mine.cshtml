@@ -1,0 +1,49 @@
+﻿@using Microsoft.AspNet.Identity
+
+@model IEnumerable<HeroAcademy.Models.HeroLesson>
+
+@{
+    ViewBag.Title = "Mine";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        My Lessons
+    </div>
+
+    <br />
+
+
+    <ul>
+        @foreach (var item in Model)
+        {
+
+            <div class="media">
+                <div class="media-left">
+                    <img width="70" height="70" src="data:image;base64,@System.Convert.ToBase64String(item.Student.ProfilePicture)" />
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        Date: @item.DateTime.ToString("d MMM yyyy")<br />
+
+
+                        Name :@Html.ActionLink(item.FullName, "Details", new { id = item.Id })<br />
+
+
+                        Course Assigned : @Html.DisplayFor(modelItem => item.Course.Name)
+                    </h4><hr />
+                </div>
+                <div class="actions">
+                    <a href="@Url.Action("Edit", "HeroLessons", new { id = item.Id })">
+                        Edit
+                    </a>
+                </div>
+            </div>
+        }
+    </ul>
+
+@section scripts{
+
+}
