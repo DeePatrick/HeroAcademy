@@ -1,0 +1,83 @@
+﻿@model HeroAcademy.ViewModels.HeroAcademyVM
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create a Lesson</h2>
+
+@using (Html.BeginForm("Create", "HeroLessons"))
+{
+    <p class="alert alert-info">All fields are <strong>required</strong>.</p>
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.FullName, "Full Name")
+        @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", autofocus = "autofocus" })
+        @Html.ValidationMessageFor(m => m.FullName)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Classroom)
+        @Html.TextBoxFor(m => m.Classroom, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Classroom)
+    </div>
+    <div class="form-group" id="txtDate">
+        @Html.LabelFor(m => m.Date)
+        @Html.TextBoxFor(m => m.Date, new { @class = "form-control", placeholder = "eg 1 Jan 2015" })
+        @Html.ValidationMessageFor(m => m.Date)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Time)
+        @Html.TextBoxFor(m => m.Time, new { @class = "form-control", placeholder = "eg 20:00" })
+        @Html.ValidationMessageFor(m => m.Time)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DateOfBirth, "Date of Birth")
+        @Html.TextBoxFor(m => m.DateOfBirth, new { @class = "form-control", placeholder = "eg 1 Jan 2015" })
+        @Html.ValidationMessageFor(m => m.DateOfBirth)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Duration, "Length of Course")
+        @Html.TextBoxFor(m => m.Duration, new { @class = "form-control", placeholder = "No format" })
+        @Html.ValidationMessageFor(m => m.Duration)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Qualification)
+        @Html.DropDownListFor(m => m.Qualification, new SelectList(Model.Qualifications, "Id", "Name"), "Select One", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Qualification)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Course)
+        @Html.DropDownListFor(m => m.Course, new SelectList(Model.Courses, "Id", "Name"), "Select One", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Course)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Instructor)
+        @Html.DropDownListFor(m => m.Instructor, new SelectList(Model.Instructors, "Id", "Name"), "Select One", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Instructor)
+    </div>
+
+
+    <input type="submit" value="Create" class="btn btn-primary" />
+
+
+
+
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script src="~/Scripts/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+<link href="~/Scripts/jquery-ui-1.11.4.custom/jquery-ui.css" rel="stylesheet" />
+<link href="~/Scripts/jquery-ui-1.11.4.custom/jquery-ui.structure.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<link href="~/Scripts/jquery-ui-1.11.4.custom/jquery-ui.structure.min.css" rel="stylesheet" />
+<link href="~/Scripts/jquery-ui-1.11.4.custom/jquery-ui.theme.css" rel="stylesheet" />
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#txtDate").datepicker();
+    });
+
+
+</script>

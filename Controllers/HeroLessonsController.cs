@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 
+
 namespace HeroAcademy.Controllers
 {
     public class HeroLessonsController : Controller
@@ -19,7 +20,6 @@ namespace HeroAcademy.Controllers
 
         // GET: HeroAcademys
         [HttpGet]
-        [Authorize]
         public ActionResult Create()
         {
             var viewModel = new HeroAcademyVM
@@ -66,14 +66,14 @@ namespace HeroAcademy.Controllers
             return RedirectToAction("Index", "HeroLessons");
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-             List<HeroLesson> heroLessons = _context.HeroLessons
-                .Include(g => g.Student)
-                .Include(g => g.Course)
-                .Include(g => g.Instructor)
-                .Include(g => g.Qualification)
-                .ToList();
+           var heroLessons = _context.HeroLessons
+               .Include(g => g.Student)
+               .Include(g => g.Course)
+               .Include(g => g.Instructor)
+               .Include(g => g.Qualification)
+               .ToList();
 
             return View(heroLessons);
         }
@@ -90,7 +90,7 @@ namespace HeroAcademy.Controllers
         //ends here.
 
 
-        [Authorize]
+        
         public ActionResult Details(int id)
         {
             var viewModel = _context.HeroLessons
@@ -104,7 +104,6 @@ namespace HeroAcademy.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public ActionResult Delete(int Id)
         {
             var viewModel = _context.HeroLessons
@@ -114,10 +113,14 @@ namespace HeroAcademy.Controllers
                 .Include(g => g.Qualification)
                 .SingleOrDefault(g => g.Id == Id);
 
+
+            _context.HeroLessons.Remove(viewModel);
+            _context.SaveChanges();
+
             return View(viewModel);
         }
 
-         [Authorize]
+
         public ActionResult Edit(int id)
         {
             var userId = User.Identity.GetUserId();
@@ -144,7 +147,6 @@ namespace HeroAcademy.Controllers
 
 
         [Authorize]
-        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Update(HeroAcademyVM viewModel)
         {           

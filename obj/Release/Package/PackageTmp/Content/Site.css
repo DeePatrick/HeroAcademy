@@ -1,0 +1,269 @@
+﻿body {
+  padding-top: 90px;
+  padding-bottom: 20px;
+}
+/* Set padding to keep content from hitting the edges */
+.body-content {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+  white-space: normal;
+}
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+  max-width: 280px;
+}
+span.field-validation-error {
+  color: red;
+  font-weight: bold;
+}
+.voffset {
+  margin-top: 2px;
+}
+.voffset1 {
+  margin-top: 5px;
+}
+.voffset2 {
+  margin-top: 10px;
+}
+.voffset3 {
+  margin-top: 20px;
+}
+.voffset4 {
+  margin-top: 40px;
+}
+.voffset5 {
+  margin-top: 80px;
+}
+/* Bootstrap Overrides */
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('fonts/glyphicons-halflings-regular.eot');
+  src: url('fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('fonts/glyphicons-halflings-regular.woff') format('woff'), url('fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+.popover {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.navbar-inverse {
+  background-color: #555;
+  border-color: #676565;
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: #fff;
+}
+.navbar-inverse .navbar-brand {
+  color: #fff;
+}
+.navbar-inverse .notifications {
+  position: relative;
+}
+.navbar-inverse .notifications .badge {
+  position: absolute;
+  top: 8px;
+  right: -1px;
+  background: #676565;
+}
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  background-color: rgba(108, 104, 104, 0.55);
+}
+.dropdown-menu {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.navbar-inverse .navbar-nav > .dropdown > a .caret {
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+}
+.navbar-brand {
+  font-weight: 700;
+}
+body {
+  font-size: 17px;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.form-control {
+  font-size: 17px;
+  height: 44px;
+  -ms-border-radius: 25px;
+  border-radius: 25px;
+  transition: none;
+  -webkit-transition: none;
+}
+.form-control:focus {
+  box-shadow: none;
+}
+
+.btn {
+    -moz-appearance: none;
+    -moz-user-select: none;
+    background-color: #eee;
+    background-image: linear-gradient(#fcfcfc, #eee);
+    border: 1px solid #d5d5d5;
+    border-radius: 6px;
+    color: #333;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 7px 12px;
+    position: relative;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+
+.btn-sm{
+    font-size: 12px;
+    line-height:20px;
+    padding3px 10px;
+}
+
+.btn-primary{
+
+}
+
+
+
+/* Page-level styles */
+.lessons {
+  list-style: none;
+}
+.lessons > li {
+  position: relative;
+  margin-bottom: 50px;
+}
+.lessons > li .date {
+  background: #999;
+  color: white;
+  text-align: center;
+  width: 60px;
+  -ms-border-radius: 15px;
+  border-radius: 15px;
+}
+.lessons > li .date .month {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 2px 6px;
+}
+.lessons > li .date .day {
+  color: #333;
+  font-size: 20px;
+  padding: 6px 12px;
+  background-color: #eee;
+  background-image: linear-gradient(#fcfcfc, #eee);
+  border: 1px solid #d5d5d5;
+}
+.lessons > li .details {
+  position: absolute;
+  top: 0;
+  left: 70px;
+}
+.lessons > li .details .artist {
+  font-weight: bold;
+  display: block;
+}
+.lessons > li .details .genre {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 4px;
+}
+.lessons > li .actions {
+  font-size: 15px;
+  display: none;
+}
+.lessons > li:hover .actions {
+  display: block;
+}
+.popover-notifications .popover-content {
+  padding: 0;
+}
+.popover-notifications ul.notifications {
+  list-style: none;
+  padding-left: 0;
+}
+.popover-notifications ul.notifications > li {
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+.popover-notifications ul.notifications > li:last-child {
+  border-bottom: none;
+}
+.popover-notifications ul.notifications .highlight {
+  font-weight: bold;
+}
+#searchlessons {
+  width: 400px;
+}
+#searchlessons input {
+  max-width: none;
+}
+
+.menu-heading {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #eee;
+    color: #555;
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 20px;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 8px 10px;
+}
+
+
+*::-moz-placeholder{
+    color:#999;
+}
+
+.form-group .form-control.user-profile-bio-field {
+    width: 440px;
+    height: 5.35em;
+    min-height: 0;
+}
+.site-footer-links li {
+    line-height: 16px;
+}
+
+.site-footer-links {
+    list-style: outside none none;
+}
+.site-footer {
+    color: #767676;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.media-left{
+  height:50px; 
+   width:50px; 
+}
+/*# sourceMappingURL=site.css.map */
