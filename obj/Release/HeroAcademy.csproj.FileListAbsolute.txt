@@ -81,8 +81,4 @@ C:\Users\okudo\Source\Workspaces\Workspace\HeroAcademy\HeroAcademy\HeroAcademy\o
 C:\Users\okudo\Source\Workspaces\Workspace\HeroAcademy\HeroAcademy\HeroAcademy\obj\Release\HeroAcademy.dll
 C:\Users\okudo\Source\Workspaces\Workspace\HeroAcademy\HeroAcademy\HeroAcademy\obj\Release\HeroAcademy.pdb
 C:\Users\okudo\Source\Workspaces\Workspace\HeroAcademy\HeroAcademy\HeroAcademy\obj\Release\HeroAcademy.csprojResolveAssemblyReference.cache
-C:\Users\okudo\Source\Workspaces\Workspace\HeroAcademy\HeroAcademy\HeroAcademy\bin\PagedList.dll
-C:\Users\okudo\Source\Workspaces\Workspace\HeroAcademy\HeroAcademy\HeroAcademy\bin\PagedList.Mvc.dll
-C:\Users\okudo\Source\Workspaces\Workspace\HeroAcademy\HeroAcademy\HeroAcademy\bin\PagedList.xml
-C:\Users\okudo\Source\Workspaces\Workspace\HeroAcademy\HeroAcademy\HeroAcademy\bin\PagedList.Mvc.xml
 C:\Users\okudo\Source\Workspaces\Workspace\HeroAcademy\HeroAcademy\HeroAcademy\obj\Release\HeroAcademy.csproj.ResolveComReference.cache

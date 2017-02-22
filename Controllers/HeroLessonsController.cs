@@ -3,6 +3,7 @@ using HeroAcademy.ViewModels;
 using Microsoft.AspNet.Identity;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -65,32 +66,20 @@ namespace HeroAcademy.Controllers
 
             return RedirectToAction("Index", "HeroLessons");
         }
-
-        public ActionResult Index(int? page)
+    
+        public ActionResult Index(string query = null)
         {
            var heroLessons = _context.HeroLessons
                .Include(g => g.Student)
                .Include(g => g.Course)
                .Include(g => g.Instructor)
                .Include(g => g.Qualification)
+               .OrderBy(g => g.FullName)
                .ToList();
 
             return View(heroLessons);
         }
-
-        //This code is to return image from binary db.Delete if not working.
-        //start here.
-        public FileContentResult getImg(int id)
-        {
-            byte[] byteArray = _context.Users.Find(id).ProfilePicture;
-            return byteArray != null
-                ? new FileContentResult(byteArray, "image/jpeg")
-                : null;
-        }
-        //ends here.
-
-
-        
+       
         public ActionResult Details(int id)
         {
             var viewModel = _context.HeroLessons
@@ -104,21 +93,23 @@ namespace HeroAcademy.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delete(int Id)
+        public ActionResult Delete(int id)
         {
             var viewModel = _context.HeroLessons
                 .Include(g => g.Student)
                 .Include(g => g.Course)
                 .Include(g => g.Instructor)
                 .Include(g => g.Qualification)
-                .SingleOrDefault(g => g.Id == Id);
+                .SingleOrDefault(g => g.Id == id);
 
 
+            Debug.Assert(viewModel != null, "viewModel != null");
             _context.HeroLessons.Remove(viewModel);
             _context.SaveChanges();
 
             return View(viewModel);
         }
+
 
 
         public ActionResult Edit(int id)

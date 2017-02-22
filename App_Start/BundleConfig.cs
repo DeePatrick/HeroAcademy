@@ -23,7 +23,12 @@ namespace HeroAcademy
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.spacelabtheme.css",
+                      "~/Content/bootstrap.css",
+                      "~/Content/ddlevelsmenu-base.css",
+                      "~/Content/ddlevelsmenu-topbar.css",
+                      "~/Content/font-awesome.css",
+                      "~/Content/style.css",
+                      "~/Content/animate.css",
                       "~/Content/site.css"));
         }
     }

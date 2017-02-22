@@ -3,14 +3,61 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Hero Academy</title>
     <link href="https://fonts.googleapis.com/css?family=Lato|400|700" rel="stylesheet">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <!-- Sliding panel starts-->
+
+    <div class="slidepanel">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="spara">
+                        <!-- Contact details -->
+                        <p>
+                            <i class="fa fa-envelope-o lightblue"></i>courseinfo@heroacademy.com &nbsp;
+                            <i class="fa fa-phone lightblue"></i> +44-170-808-9640
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="social">
+                        <!-- Social media icons. Repalce # with your profile links -->
+                        <a href="http://linkedin.com" class="bviolet"><i class="fa fa-linkedin"></i></a>
+                        <a href="http://twitter.com" class="blightblue"><i class="fa fa-twitter"></i></a>
+                        <a href="http://facebook.com" class="bblue"><i class="fa fa-facebook"></i></a>
+                        <a href="http://youtube.com" class="bred"><i class="fa fa-youtube"></i></a>
+                        <a href="http://instagram.com" class="blightblue"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            @*<div class="clearfix"></div>*@
+        </div>
+    </div>
+    <!-- Sliding panel ends-->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Hero Academy", "Index", "HeroLessons", new { area = "" }, new { @class = "navbar-brand animated bounceInUp" })
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">              
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </nav>
+    <div class="navbar navbar-inverse">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -18,16 +65,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("HeroDrome", "Index", "HeroLessons", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">                   
-                    <li>@Html.ActionLink("Add a Lesson", "Create", "HeroLessons")</li>
+                <ul class="nav nav-pills nav-justified">
+                    <li>@Html.ActionLink("Welcome", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Courses", "Courses", "Home")</li>
+                    <li>@Html.ActionLink("Instructors", "Instructors", "Home")</li>
+                    <li>@Html.ActionLink("Tutorials", "Create", "HeroLessons")</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -40,4 +89,5 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
+
 </html>
