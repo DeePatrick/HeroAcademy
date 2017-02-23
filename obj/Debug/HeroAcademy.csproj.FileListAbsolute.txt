@@ -147,6 +147,7 @@ C:\Users\okudo\Source\Workspaces\Workspace\HeroAcademy\HeroAcademy\HeroAcademy\b
 C:\Users\okudo\Source\Workspaces\Workspace\HeroAcademy\HeroAcademy\HeroAcademy\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\okudo\Source\Workspaces\Workspace\HeroAcademy\HeroAcademy\HeroAcademy\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\okudo\Source\Workspaces\Workspace\HeroAcademy\HeroAcademy\HeroAcademy\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\okudo\Source\Workspaces\Workspace\HeroAcademy\HeroAcademy\HeroAcademy\obj\Debug\HeroAcademy.csproj.ResolveComReference.cache
 C:\Users\okudo\Source\Workspaces\Workspace\HeroAcademy\HeroAcademy\HeroAcademy\obj\Debug\HeroAcademy.Migrations.Initial.resources
 C:\Users\okudo\Source\Workspaces\Workspace\HeroAcademy\HeroAcademy\HeroAcademy\obj\Debug\HeroAcademy.Migrations.AddedData.resources
 C:\Users\okudo\Source\Workspaces\Workspace\HeroAcademy\HeroAcademy\HeroAcademy\obj\Debug\HeroAcademy.Migrations.NoPostBackObserved.resources
@@ -163,5 +164,4 @@ C:\Users\okudo\Source\Workspaces\Workspace\HeroAcademy\HeroAcademy\HeroAcademy\o
 C:\Users\okudo\Source\Workspaces\Workspace\HeroAcademy\HeroAcademy\HeroAcademy\obj\Debug\HeroAcademy.csproj.GenerateResource.Cache
 C:\Users\okudo\Source\Workspaces\Workspace\HeroAcademy\HeroAcademy\HeroAcademy\obj\Debug\HeroAcademy.dll
 C:\Users\okudo\Source\Workspaces\Workspace\HeroAcademy\HeroAcademy\HeroAcademy\obj\Debug\HeroAcademy.pdb
-C:\Users\okudo\Source\Workspaces\Workspace\HeroAcademy\HeroAcademy\HeroAcademy\obj\Debug\HeroAcademy.csproj.ResolveComReference.cache
 C:\Users\okudo\Source\Workspaces\Workspace\HeroAcademy\HeroAcademy\HeroAcademy\obj\Debug\HeroAcademy.csprojResolveAssemblyReference.cache

@@ -34,6 +34,7 @@ namespace HeroAcademy.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult Create(HeroAcademyVM viewModel)
         {
             var studentId = User.Identity.GetUserId();
@@ -48,7 +49,7 @@ namespace HeroAcademy.Controllers
                 return View(viewModel);
             }
 
-            var Lesson = new HeroLesson
+            var lesson = new HeroLesson
             {
                 StudentId = User.Identity.GetUserId(),
                 DateOfBirth = viewModel.GetDateOfBirth(),
@@ -61,7 +62,7 @@ namespace HeroAcademy.Controllers
                 FullName = viewModel.FullName
             };
 
-            _context.HeroLessons.Add(Lesson);
+            _context.HeroLessons.Add(lesson);
             _context.SaveChanges();
 
             return RedirectToAction("Index", "HeroLessons");
@@ -93,6 +94,7 @@ namespace HeroAcademy.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult Delete(int id)
         {
             var viewModel = _context.HeroLessons
@@ -111,21 +113,27 @@ namespace HeroAcademy.Controllers
         }
 
 
-
+        [Authorize]
         public ActionResult Edit(int id)
         {
             var userId = User.Identity.GetUserId();
-            var heroLesson  = _context.HeroLessons.Single(e => e.Id == id && e.StudentId == userId);
+            var heroLesson  = _context.HeroLessons.SingleOrDefault(e => e.Id == id && e.StudentId == userId);
+
+            if (heroLesson == null)
+                return HttpNotFound();
+
 
             var viewModel = new HeroAcademyVM
             {
 
                 Id = heroLesson.Id,
                 FullName = heroLesson.FullName,
-                Date = heroLesson.DateOfBirth.ToString("d MMM yyyy"),
-                Time = heroLesson.DateOfBirth.ToString("HH:mm"),
+                Date = heroLesson.DateTime.ToString("d MMM yyyy"),
+                Time = heroLesson.DateTime.ToString("HH:mm"),
                 Duration = heroLesson.Duration,
                 Classroom = heroLesson.Classroom,
+                DateOfBirth = heroLesson.DateOfBirth.ToString("d MMM yyyy"),
+
                 Instructors = _context.Instructors.ToList(),
                 Qualifications = _context.Qualifications.ToList(),
                 Courses = _context.Courses.ToList()
@@ -140,8 +148,7 @@ namespace HeroAcademy.Controllers
         [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Update(HeroAcademyVM viewModel)
-        {           
-
+        {                      
             if (!ModelState.IsValid)
             {
                 viewModel.Instructors = _context.Instructors.ToList();
@@ -154,13 +161,15 @@ namespace HeroAcademy.Controllers
             var userId = User.Identity.GetUserId();
             var heroLesson = _context.HeroLessons
                 .Single(g => g.Id == viewModel.Id && g.StudentId == userId);
+
             heroLesson.Modify( viewModel.GetDateTime(),
                 viewModel.Classroom,
                 viewModel.FullName,
                 viewModel.Duration,
                 viewModel.Instructor,
                 viewModel.Course,
-                viewModel.Qualification
+                viewModel.Qualification,
+                viewModel.GetDateOfBirth()
                 );
 
             _context.SaveChanges();

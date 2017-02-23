@@ -162,6 +162,14 @@ namespace HeroAcademy.Controllers
                         ModelState.AddModelError("CustomError", "Image must be in jpeg or gif format.");
                     }
                 }
+
+                else
+                {
+                    ModelState.AddModelError("CustomError", "Profile Picture is required. You must upload an Image");
+                    return View();
+                }
+
+
                 byte[] data = new byte[model.UserProfilePicture.ContentLength];
                 model.UserProfilePicture.InputStream.Read(data, 0, model.UserProfilePicture.ContentLength);
                 var user = new ApplicationUser() { UserName = model.Email, Email = model.Email, Name = model.Name, ProfilePicture = data };

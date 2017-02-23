@@ -41,8 +41,8 @@
             </div>
         </li>
         
-        <li class="alert alert-warning">
-            <a href="@Url.Action("Edit", "HeroLessons", new { id = item.Id })">
+        <li>
+            <a class="btn btn-primary" href="@Url.Action("Edit", "HeroLessons", new {id = item.Id})">
                 Edit
             </a>
         </li>
@@ -51,3 +51,4 @@
 @section scripts{
 
 }
+
