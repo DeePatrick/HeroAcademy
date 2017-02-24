@@ -292,6 +292,16 @@
     <Content Include="Images\fea5.jpg" />
     <Content Include="Images\fea6.jpg" />
     <Content Include="Images\footer-bg.jpg" />
+    <Content Include="Images\hero.jpg" />
+    <Content Include="Images\hero10.jpg" />
+    <Content Include="Images\hero2.jpg" />
+    <Content Include="Images\hero3.jpg" />
+    <Content Include="Images\hero4.jpg" />
+    <Content Include="Images\hero5.jpg" />
+    <Content Include="Images\hero6.jpg" />
+    <Content Include="Images\hero7.jpg" />
+    <Content Include="Images\hero8.jpg" />
+    <Content Include="Images\hero9.jpg" />
     <Content Include="Images\Hero_education.jpg" />
     <Content Include="Images\Hero_foundation.jpg" />
     <Content Include="Images\Hero_management.jpg" />
@@ -414,6 +424,10 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Shared\herotitle.png" />
+    <Content Include="Views\Shared\mouse_select_left.png" />
+    <Content Include="Views\Shared\phone.jpg" />
+    <Content Include="Views\Shared\soilder.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

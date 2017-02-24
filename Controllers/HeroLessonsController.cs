@@ -132,11 +132,15 @@ namespace HeroAcademy.Controllers
                 Time = heroLesson.DateTime.ToString("HH:mm"),
                 Duration = heroLesson.Duration,
                 Classroom = heroLesson.Classroom,
-                DateOfBirth = heroLesson.DateOfBirth.ToString("d MMM yyyy"),
+                DateOfBirth = heroLesson.DateOfBirth.ToShortDateString(),
+
+                Instructor = heroLesson.InstructorId,
+                Qualification = heroLesson.QualificationId,
+                Course = heroLesson.CourseId,
 
                 Instructors = _context.Instructors.ToList(),
                 Qualifications = _context.Qualifications.ToList(),
-                Courses = _context.Courses.ToList()
+                Courses = _context.Courses.ToList()            
             };
 
 
@@ -162,14 +166,15 @@ namespace HeroAcademy.Controllers
             var heroLesson = _context.HeroLessons
                 .Single(g => g.Id == viewModel.Id && g.StudentId == userId);
 
-            heroLesson.Modify( viewModel.GetDateTime(),
+            heroLesson.Modify( 
+                viewModel.GetDateTime(),
                 viewModel.Classroom,
                 viewModel.FullName,
                 viewModel.Duration,
                 viewModel.Instructor,
                 viewModel.Course,
-                viewModel.Qualification,
-                viewModel.GetDateOfBirth()
+                viewModel.Qualification
+                //viewModel.GetDateOfBirth()
                 );
 
             _context.SaveChanges();

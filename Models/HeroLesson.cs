@@ -43,7 +43,7 @@ namespace HeroAcademy.Models
         public string Classroom { get; set; }
         public bool IsDeleted { get; private set; }
 
-        public void Modify(DateTime dateTime, string classroom, string fullName, TimeSpan duration, byte instructor, byte course, byte qualification, DateTime dateOfBirth)
+        public void Modify(DateTime dateTime, string classroom, string fullName, TimeSpan duration, byte instructor, byte course, byte qualification/*, DateTime dateOfBirth*/)
         {           
             FullName = fullName;
             DateTime = dateTime;
@@ -52,7 +52,7 @@ namespace HeroAcademy.Models
             InstructorId = instructor;
             QualificationId = qualification;
             Duration = duration;
-            DateOfBirth = dateOfBirth;
+            //DateOfBirth = dateOfBirth;
         }
     }
 }
