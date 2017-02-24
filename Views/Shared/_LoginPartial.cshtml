@@ -1,5 +1,4 @@
-﻿@using Microsoft.Ajax.Utilities
-@using Microsoft.AspNet.Identity
+﻿@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -7,29 +6,15 @@
         @Html.AntiForgeryToken()
 
         <ul class="nav navbar-nav navbar-right">
-            @*<li>*@
-            @*<a href="#" class="" role="button">
-                    @{
-                        var imgUrl = Url.Content("~/Content/images/profile/" + User.Identity.GetUserName() + ".png") + "?time=" + DateTime.Now.ToString();
-                    }
-                    <img src="@imgUrl" height="40" width="40" class="img-circle" />
-                </a>*@
-            @*<li>
-                    @Html.ActionLink("Hi!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Click on 'Hi' to add custom image to navbar" })
-                </li>*@
-
-
-
-            <li><img src="@Url.Action("UploadPhoto", "Manage")" height="48" width="48" class="img-circle" /></li>
-
-
             <li>
-                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                <img src="@Url.Action("UserPhotos", "HeroLessons" )" height="48" width="48" class="img-circle" />
+
             </li>
 
 
+
             <li class="dropup">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@User.Identity.GetUserName() <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello @User.Identity.GetUserName() <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="@Url.Action("Mine", "HeroLessons")">Lessons booked</a></li>
                     <li role="separator" class="divider"></li>
@@ -37,13 +22,13 @@
                 </ul>
             </li>
         </ul>
-    }
-}
-else
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
-}
+                            }
+                        }
+                        else
+                        {
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                                <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                            </ul>
+                        }
 

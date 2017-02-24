@@ -4,8 +4,11 @@ using Microsoft.AspNet.Identity;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity.Owin;
 
 
 namespace HeroAcademy.Controllers
@@ -67,20 +70,20 @@ namespace HeroAcademy.Controllers
 
             return RedirectToAction("Index", "HeroLessons");
         }
-    
+
         public ActionResult Index(string query = null)
         {
-           var heroLessons = _context.HeroLessons
-               .Include(g => g.Student)
-               .Include(g => g.Course)
-               .Include(g => g.Instructor)
-               .Include(g => g.Qualification)
-               .OrderBy(g => g.FullName)
-               .ToList();
+            var heroLessons = _context.HeroLessons
+                .Include(g => g.Student)
+                .Include(g => g.Course)
+                .Include(g => g.Instructor)
+                .Include(g => g.Qualification)
+                .OrderBy(g => g.FullName)
+                .ToList();
 
             return View(heroLessons);
         }
-       
+
         public ActionResult Details(int id)
         {
             var viewModel = _context.HeroLessons
@@ -117,7 +120,7 @@ namespace HeroAcademy.Controllers
         public ActionResult Edit(int id)
         {
             var userId = User.Identity.GetUserId();
-            var heroLesson  = _context.HeroLessons.SingleOrDefault(e => e.Id == id && e.StudentId == userId);
+            var heroLesson = _context.HeroLessons.SingleOrDefault(e => e.Id == id && e.StudentId == userId);
 
             if (heroLesson == null)
                 return HttpNotFound();
@@ -140,7 +143,7 @@ namespace HeroAcademy.Controllers
 
                 Instructors = _context.Instructors.ToList(),
                 Qualifications = _context.Qualifications.ToList(),
-                Courses = _context.Courses.ToList()            
+                Courses = _context.Courses.ToList()
             };
 
 
@@ -152,7 +155,7 @@ namespace HeroAcademy.Controllers
         [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Update(HeroAcademyVM viewModel)
-        {                      
+        {
             if (!ModelState.IsValid)
             {
                 viewModel.Instructors = _context.Instructors.ToList();
@@ -166,7 +169,7 @@ namespace HeroAcademy.Controllers
             var heroLesson = _context.HeroLessons
                 .Single(g => g.Id == viewModel.Id && g.StudentId == userId);
 
-            heroLesson.Modify( 
+            heroLesson.Modify(
                 viewModel.GetDateTime(),
                 viewModel.Classroom,
                 viewModel.FullName,
@@ -175,7 +178,7 @@ namespace HeroAcademy.Controllers
                 viewModel.Course,
                 viewModel.Qualification
                 //viewModel.GetDateOfBirth()
-                );
+            );
 
             _context.SaveChanges();
 
@@ -199,6 +202,27 @@ namespace HeroAcademy.Controllers
 
             return View(heroLessons);
         }
-       
+
+        public FileContentResult UserPhotos()
+        {
+            var userId = User.Identity.GetUserId();
+            if (User.Identity.IsAuthenticated)
+            {
+                // to get the user details to load user Image
+                var bdUsers = HttpContext.GetOwinContext().Get<ApplicationDbContext>();
+                var userImage = bdUsers.Users.SingleOrDefault(x => x.Id == userId);
+
+                return new FileContentResult(userImage.ProfilePicture, "image/jpeg");
+            }
+            string fileName = HttpContext.Server.MapPath(@"~/Images/noImg.jpg");
+
+            byte[] imageData = null;
+            FileInfo fileInfo = new FileInfo(fileName);
+            long imageFileLength = fileInfo.Length;
+            FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            BinaryReader br = new BinaryReader(fs);
+            imageData = br.ReadBytes((int) imageFileLength);
+            return File(imageData, "image/png");
+        }
     }
 }

@@ -311,6 +311,7 @@
     <Content Include="Images\main_header.png" />
     <Content Include="Images\male.png" />
     <Content Include="Images\agent6.jpg" />
+    <Content Include="Images\noImg.jpg" />
     <Content Include="Images\noImg.png" />
     <Content Include="Images\Participants\Anton_Kreiger.jpg" />
     <Content Include="Images\Participants\Adelaida_Leary.jpg" />
